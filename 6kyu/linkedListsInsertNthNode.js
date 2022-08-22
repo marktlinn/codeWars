@@ -10,8 +10,9 @@ You must throw/raise an exception if the index is too large.
 
 //pseudoCode/plan:
 // Create a base case for if index is zero: create a new node with the data and it's next/linked value = current head and return the head.
-// Else iterate through the nodes. One variable to hold all previous values and one to hold all current heads.
-// When the 
+// Else iterate through the nodes. One variable to hold all previous heads and one to hold all current heads.
+// When the index is reached set the data value to be input as the next of the previous list and the remaining 'current' heads as the .next for the new node.
+// return the head.
 
 function Node(data) {
     this.data = data;
