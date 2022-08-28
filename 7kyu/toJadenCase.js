@@ -4,7 +4,7 @@ Your task is to convert strings to how they would be written by Jaden Smith. The
 */
 
 //PseudoCode/plan:
-// split the string by spaces, map over each element capitalising the first element and returning it
+// split the string by spaces, map over each element capitalising the first element + the remaining elements in the word. Return the map with elements joined.
 
 String.prototype.toJadenCase = function () {
     return this.split(' ').map(word=> word[0].toUpperCase() + word.slice(1,)).join(' ')
