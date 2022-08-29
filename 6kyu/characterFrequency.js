@@ -12,7 +12,8 @@ letterFrequency('aaAabb dddDD hhcc')
 // check:
 // if an object exists with that key, if so increment it's value by one
 // else create a new object with that value and set it's value to 1
-// return the objects as an array of entries, sorted by their value
+// return the objects as an array of entries, sorted by their value first then by their alphabetical order
+// ==>> originallyI sorted the resultArr with .sort() to organise the letters the ran the sort((a,b)=> b[1]-a[1]) to organise by value as well. This works in VSCode and newer versions of Node by not in the challenge so I had to make a composite sort() to handle the different conditions.
 
 function letterFrequency(text){
         const strArr= text.toLowerCase().split('').filter(elem=> elem.match(/[a-z]/gm))
@@ -20,8 +21,13 @@ function letterFrequency(text){
             tally[items] = (tally[items] || 0)+1;
             return tally
         }, {});
-        const resultArr = Object.entries(result).sort()
-        return resultArr.sort((a,b)=> b[1]-a[1]);
+        const resultArr = Object.entries(result).sort((a,b)=> {
+            if(b[1]>a[1]) return 1
+            if(b[1]<a[1]) return -1
+            if(a[0]>b[0]) return 1
+            if(a[0]<b[0]) return -1
+        })
+        return resultArr
 }
 
 console.log(letterFrequency('dddaaaaaa bbbbbbb eeeeeee ccccccc f'))
