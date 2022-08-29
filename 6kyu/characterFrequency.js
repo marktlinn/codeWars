@@ -21,7 +21,6 @@ function letterFrequency(text){
             return tally
         }, {});
         const resultArr = Object.entries(result).sort()
-        console.log(resultArr)
         return resultArr.sort((a,b)=> b[1]-a[1]);
 }
 
