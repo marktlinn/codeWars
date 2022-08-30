@@ -24,33 +24,6 @@ longest_consec(strarr, 2) should return "folingtrashy".
 
 const stringsArr = [ 'it', 'wkppv', 'ixoyx', '3452', 'zzzzzzzzzzzz' ]
 
-// function longestConsec(strarr, k) {
-//     if(!strarr || k> strarr.length) return '';
-//     if(strarr.length === k) return strarr.join('')
-//     let index = 0;
-//     const newStrArr = {};
-//     while(k <= strarr.length){
-//         let stringThing = ''
-//         for(let i = index; i<k; i++){
-//             stringThing += strarr[i];
-//         }
-//         newStrArr[stringThing] = stringThing.length;
-//         k ++
-//         index ++
-//         stringThing = '';
-//     }
-//     const sortedResult = Object.entries(newStrArr).sort((a,b)=> {
-//         if(b[1]>a[1]) return 1
-//         if(b[1]<a[1]) return -1
-//         if(a[0]>b[0]) return 1
-//         if(a[0]<b[0]) return -1
-//     })
-//     return sortedResult[0][0]
-// }
-
-// console.log(longestConsec(stringsArr, 2))
-
-
 function longestConsec(strarr, k) {
     if(!strarr || k> strarr.length) return '';
     if(strarr.length === k) return strarr.join('')
@@ -66,9 +39,13 @@ function longestConsec(strarr, k) {
         index ++
         stringThing = '';
     }
-    const newObjsToArr = Object.entries(newStrArr)
-
-    return newObjsToArr.sort((a,b)=> b[1]-a[1])[0][0]
+    const sortedResult = Object.entries(newStrArr).sort((a,b)=> {
+        if(b[1]>a[1]) return 1
+        if(b[1]<a[1]) return -1
+        if(a[0]>b[0]) return 1
+        if(a[0]<b[0]) return -1
+    })
+    return sortedResult[0][0]
 }
 
 console.log(longestConsec(stringsArr, 2))
