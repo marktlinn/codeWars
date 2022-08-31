@@ -20,7 +20,11 @@ longest_consec(strarr, 2) should return "folingtrashy".
 // while index less than strarr.length loop from index to k elements in the strarr
 // each value at each index should be combined and added to newStrrArr as a new object element: the key the letters and the value the length of the string of letters
 // increment index by value of k with each loop
-//  finally return the first object in the new array with the highest value.
+// To return the first element in the new array with the value we can't use sort as it's not stable in version of node used for the challenge
+// instead we can declare a variable for an array of all the values from the newStrArr.
+// find the maximum value
+// then to find the first newly formed string with a length == to the maximum value
+// loop through the newStrArr, if an element has the length == maximum value return it.
 
 const stringsArr = [ 'it', 'wkppv', 'ixoyx', '3452', 'zzzzzzzzzzzz' ]
 
@@ -39,13 +43,13 @@ function longestConsec(strarr, k) {
         index ++
         stringThing = '';
     }
-    const sortedResult = Object.entries(newStrArr).sort((a,b)=> {
-        if(b[1]>a[1]) return 1
-        if(b[1]<a[1]) return -1
-        if(a[0]>b[0]) return 1
-        if(a[0]<b[0]) return -1
-    })
-    return sortedResult[0][0]
+    const totalValues = Object.values(newStrArr)
+    const maxLength =  Math.max(...totalValues)
+    for(let elem in newStrArr){
+        if(elem.length == maxLength){
+            return elem;
+        }
+    }
 }
 
 console.log(longestConsec(stringsArr, 2))
