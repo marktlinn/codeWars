@@ -11,6 +11,10 @@ All inputs will be lowercase letters.
 
 \\\\\pseudocode/plan/////////
 Create an alphabet string a-z in order
+sort the string in order
+declare two counting variables to interate through indeces.
+index for string count = 0; index for alphabet = the index of the first letter in sorted string in the alphabet
+This way we can start seaching in the alphabet from the first letter that actually exists in the string
 loop through the string and test each index to ensure it matches the same index in the alphabet array
 If the stirng doesn't have the exact same order return false and break out of the loop, else true.
 */
@@ -20,7 +24,6 @@ function solve(s){
     const alphabet = 'abcdefghijklmnopqrstuvwxyz'
     let startLetter = alphabet.indexOf(sortedStr[0]);
     let index = 0;
-    console.log(sortedStr[index], sortedStr[0],  alphabet[startLetter])
     while(index<s.length){
         if(sortedStr[index] !== alphabet[startLetter]) return false
         startLetter++
