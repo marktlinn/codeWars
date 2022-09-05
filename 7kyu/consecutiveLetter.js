@@ -16,7 +16,7 @@ declare two counting variables to interate through indeces.
 index for string count = 0; index for alphabet = the index of the first letter in sorted string in the alphabet
 This way we can start seaching in the alphabet from the first letter that actually exists in the string
 loop through the string and test each index to ensure it matches the same index in the alphabet array
-If the stirng doesn't have the exact same order return false and break out of the loop, else true.
+If the string doesn't have the exact same order return false and break out of the loop, else true.
 */
 
 function solve(s){
