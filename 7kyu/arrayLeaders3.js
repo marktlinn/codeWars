@@ -18,12 +18,12 @@ Loop through the array
 finally if last index is greater than zero push that digit to leadingNumbers and return
 */
 
-function sum(arr, start){
+function sum(arr){
     return arr.reduce((prev, curr)=> prev+curr)
 }
 
 function arrayLeaders(numbers){
-    if(numbers.length= 0) return [];
+    if(numbers.length=== 0) return [];
     const leaderStore = [];
     let index = 0;
     while(numbers[index+1] || numbers[index+1] === 0){
@@ -39,4 +39,4 @@ function arrayLeaders(numbers){
     return leaderStore
 }
 
-console.log(arrayLeaders([1,2,3,4,0]))
+console.log(arrayLeaders([1,2,3,4,0,2]))
