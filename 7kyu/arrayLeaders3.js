@@ -27,7 +27,6 @@ function arrayLeaders(numbers){
     const leaderStore = [];
     let index = 0;
     while(numbers[index+1] || numbers[index+1] === 0){
-        console.log(numbers[index])
         if(numbers[index] > sum(numbers.slice(index+1))){
             leaderStore.push(numbers[index]);
         }
@@ -39,4 +38,4 @@ function arrayLeaders(numbers){
     return leaderStore
 }
 
-console.log(arrayLeaders([1,2,3,4,0,2]))
+
