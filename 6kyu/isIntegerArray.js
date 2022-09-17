@@ -1,4 +1,7 @@
-/*Write a function with the signature shown below:
+/*
+Link:
+https://www.codewars.com/kata/52a112d9488f506ae7000b95
+Write a function with the signature shown below:
 function isIntArray(arr) {
   return true
 }
