@@ -28,20 +28,18 @@ Loop through the list1 arr and organise first by programming language and then b
 
 function sortByLanguage(list) {
     return list.sort((a,b)=>{
-        // if (b.language> a.language) {
-        //     return -1;
-        // } else if (b.language < a.language) { 
-        //     return 1;
-        // }
-        b.language> a.language ? -1 : 1
-        a.firstName < b.firstName ? -1 : 1
-        // if (a.firstName < b.firstName) { 
-        //     return -1;
-        // } else if (a.firstName > b.firstName) {
-        //     return 1
-        // } else { // nothing to split them
-        //     return 0;
-        // }
+        if (b.language> a.language) {
+            return -1;
+        } else if (b.language < a.language) { 
+            return 1;
+        }
+        if (a.firstName < b.firstName) { 
+            return -1;
+        } else if (a.firstName > b.firstName) {
+            return 1
+        } else { // nothing to split them
+            return 0;
+        }
     })
 }
 
