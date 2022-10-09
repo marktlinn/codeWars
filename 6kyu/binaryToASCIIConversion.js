@@ -8,7 +8,7 @@ Characters can be in the range from "00000000" to "11111111" (inclusive)
 Note: In the case of an empty binary string your function should return an empty string.
 \\\\pseudocode/plan////
 convert input to string
-    if string length less than 8, parse string to radix of 2 and return the charCode as a string
+    if string length is 8, parse string to radix of 2 and return the charCode as a string
     else loop through the string, cutting it into sections of 8 and parsing those sections of 8 into letters from the charCode
 */
 
