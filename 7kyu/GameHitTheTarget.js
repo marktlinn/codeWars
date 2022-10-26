@@ -20,8 +20,6 @@ loop through the main array and then through the individual elements
     in each sub array iteration if arrowLeft found set true, if x found set true, if arrowRight found set true
     if Arrleft found before x return false, arrowRight after x return false, if x true before '<' return true etc...
 if no falsy or truthy conditions found return false 
-
-//This is a brute force solution that was quickly put together there are definitely more optimal solutions in terms of time complexity
 */
 
 const solution = mtrx => {
