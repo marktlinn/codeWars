@@ -11,6 +11,7 @@ NodeJS documentation here.
         passHash("abc123") // --> "e99a18c428cb38d5f260853678922e03"
 \\\pseudocode/plan///
 use the crypto module
+create a 'md5' hash, update the value of str and digest i.e. encode in hexidecimal.
 
 */
 
