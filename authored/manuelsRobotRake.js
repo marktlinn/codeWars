@@ -80,24 +80,35 @@ const manuelsLawn9 = [
   'fGGf',
 ];
 
+// function robotRake(manuelsLawn) {
+//   const bin = { bin: 0 };
+//   manuelsLawn.forEach(elem =>
+//     elem.split('').forEach(item => (item.match(/l/gi) ? bin.bin++ : null))
+//   );
+//   return bin;
+// }
 function robotRake(manuelsLawn) {
   const bin = { bin: 0 };
-  manuelsLawn.forEach(elem =>
-    elem.split('').forEach(item => (item.match(/l/gi) ? bin.bin++ : null))
-  );
+  manuelsLawn.forEach(elem => {
+    if (elem.length >= 1) {
+      console.log(elem.length, elem);
+      elem.split('').forEach(item => (item.match(/l/gi) ? bin.bin++ : null));
+    }
+  });
   return bin;
 }
 
-console.log(robotRake(manuelsLawn)); // => 9
-console.log(robotRake(manuelsLawn1)); // => 5
-console.log(robotRake(manuelsLawn2)); // => 2
-console.log(robotRake(manuelsLawn3)); // => 6
-console.log(robotRake(manuelsLawn4)); // => 23
-console.log(robotRake(manuelsLawn5)); // => 17
-console.log(robotRake(manuelsLawn6)); // => 2
-console.log(robotRake(manuelsLawn7)); // => 2
-console.log(robotRake(manuelsLawn8)); // => 2
-console.log(robotRake(manuelsLawn9)); // => 2
+console.log(robotRake(['l']));
+// console.log(robotRake(manuelsLawn)); // => 9
+// console.log(robotRake(manuelsLawn1)); // => 5
+// console.log(robotRake(manuelsLawn2)); // => 2
+// console.log(robotRake(manuelsLawn3)); // => 6
+// console.log(robotRake(manuelsLawn4)); // => 23
+// console.log(robotRake(manuelsLawn5)); // => 17
+// console.log(robotRake(manuelsLawn6)); // => 2
+// console.log(robotRake(manuelsLawn7)); // => 2
+// console.log(robotRake(manuelsLawn8)); // => 2
+// console.log(robotRake(manuelsLawn9)); // => 2
 
 //All test cases
 
@@ -146,5 +157,44 @@ describe("robotRake", function() {
   it("given ['fcc', '', 'fc','ccccc','gLlcff','lllll', '', 'LFGGG','gGcllllllLLLGCCgGcLL','LllGlLL','fGGf']", function() {
     assert.deepEqual(robotRake(['fcc','fc','ccccc','gLlcff','lllll','LFGGG','gGcllllllLLLGCCgGcLL','LllGlLL','fGGf']), {bin: 25});
   });
+  it("given []", function() {
+    assert.deepEqual(robotRake([]), {bin: 0});
+  });
+  it("given ['', '', '', '', '']", function() {
+    assert.deepEqual(robotRake(['', '', '', 0, '', 'haha']), {bin: 0});
+  });
+    it("given ['haha']", function() {
+    assert.deepEqual(robotRake(['', NaN,, {}, '',]), {bin: 0});
+  });
+  it("given ['l']", function() {
+    assert.deepEqual(robotRake(['l']), {bin: 1});
+  });
+    it("given ['f']", function() {
+    assert.deepEqual(robotRake(['f']), {bin: 0});
+  });
+  
 });
-*/
+
+  Random tests:
+  
+  describe("Random Test", function() {
+  const randomNum = Math.floor(Math.random() * 40);
+  const randomArrs = Math.floor(Math.random() * 10);
+
+  const generateLs = (l, num) => {
+    const arr = [];
+    for (let i = 0; i < num; i++) {
+      let letter;
+      if (l % 2 === 0) letter = 'L';
+      if (l % 2 !== 0) letter = 'l';
+      arr.push(letter.repeat(l));
+    }
+    return arr;
+  };
+    const randomArray = generateLs(randomNum, randomArrs);
+
+    it("given [randomArray]", function() {
+      assert.deepEqual(robotRake(randomArray), {bin: randomNum*randomArrs})
+    });
+  })
+  */
