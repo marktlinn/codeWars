@@ -36,48 +36,48 @@ Expected return from the above:
 ```
 */
 
-const manuelsLawn = ['CgFllL', 'G', 'llLLl', 'cCgL'];
-const manuelsLawn1 = ['C', 'LF', '', 'llCGFl', 'fcgl'];
-const manuelsLawn2 = ['fcc', 'fc', 'ccccc', 'gLlcff'];
-const manuelsLawn3 = ['fFF', 'Gf', 'CCLffCFL', 'cLLgll'];
-const manuelsLawn4 = ['lllll', 'LFGGG', 'gGcllllllLLLGCCgGcLL', 'LllGlLL'];
-const manuelsLawn5 = ['LLLLLlll', 'C', 'GGlllGgLLl', 'cLclLcFffff'];
-const manuelsLawn6 = ['f', 'c', 'll', 'fg'];
+const manuelsLawn = ["CgFllL", "G", "llLLl", "cCgL"];
+const manuelsLawn1 = ["C", "LF", "", "llCGFl", "fcgl"];
+const manuelsLawn2 = ["fcc", "fc", "ccccc", "gLlcff"];
+const manuelsLawn3 = ["fFF", "Gf", "CCLffCFL", "cLLgll"];
+const manuelsLawn4 = ["lllll", "LFGGG", "gGcllllllLLLGCCgGcLL", "LllGlLL"];
+const manuelsLawn5 = ["LLLLLlll", "C", "GGlllGgLLl", "cLclLcFffff"];
+const manuelsLawn6 = ["f", "c", "ll", "fg"];
 const manuelsLawn7 = [
-  'f',
-  'LLFLggFLlll',
-  'll',
-  'fg',
-  'llFFl',
-  'Ccllg',
-  'llll',
-  'LLLLLlll',
-  'C',
-  'GGlllGgLLl',
-  'cLclLcFffff',
+  "f",
+  "LLFLggFLlll",
+  "ll",
+  "fg",
+  "llFFl",
+  "Ccllg",
+  "llll",
+  "LLLLLlll",
+  "C",
+  "GGlllGgLLl",
+  "cLclLcFffff",
 ];
 const manuelsLawn8 = [
-  'f',
-  'LLLLGflll',
-  'll',
-  'fg',
-  'lll',
-  'Ccllg',
-  'fcc',
-  'fc',
-  'ccccc',
-  'gLlcff',
+  "f",
+  "LLLLGflll",
+  "ll",
+  "fg",
+  "lll",
+  "Ccllg",
+  "fcc",
+  "fc",
+  "ccccc",
+  "gLlcff",
 ];
 const manuelsLawn9 = [
-  'fcc',
-  'fc',
-  'ccccc',
-  'gLlcff',
-  'lllll',
-  'LFGGG',
-  'gGcllllllLLLGCCgGcLL',
-  'LllGlLL',
-  'fGGf',
+  "fcc",
+  "fc",
+  "ccccc",
+  "gLlcff",
+  "lllll",
+  "LFGGG",
+  "gGcllllllLLLGCCgGcLL",
+  "LllGlLL",
+  "fGGf",
 ];
 
 // function robotRake(manuelsLawn) {
@@ -87,18 +87,20 @@ const manuelsLawn9 = [
 //   );
 //   return bin;
 // }
-function robotRake(manuelsLawn) {
-  const bin = { bin: 0 };
-  manuelsLawn.forEach(elem => {
-    if (elem.length >= 1) {
-      console.log(elem.length, elem);
-      elem.split('').forEach(item => (item.match(/l/gi) ? bin.bin++ : null));
-    }
-  });
-  return bin;
+//Improved function:
+function robotRake(ManuelsLawn) {
+  let leaves = ManuelsLawn.join("").match(/[Ll]/g);
+  if (leaves === null) {
+    return {
+      bin: 0,
+    };
+  }
+  return {
+    bin: leaves.length,
+  };
 }
 
-console.log(robotRake(['l']));
+console.log(robotRake(["l"]));
 // console.log(robotRake(manuelsLawn)); // => 9
 // console.log(robotRake(manuelsLawn1)); // => 5
 // console.log(robotRake(manuelsLawn2)); // => 2
@@ -110,8 +112,7 @@ console.log(robotRake(['l']));
 // console.log(robotRake(manuelsLawn8)); // => 2
 // console.log(robotRake(manuelsLawn9)); // => 2
 
-//All test cases
-
+//All test cases: Updated
 /*
 const chai = require("chai");
 const assert = chai.assert;
@@ -172,12 +173,22 @@ describe("robotRake", function() {
     it("given ['f']", function() {
     assert.deepEqual(robotRake(['f']), {bin: 0});
   });
-  
 });
 
-  Random tests:
+describe('robotRake', () => {
+  it('should return the correct number of leaves in the bin for a given array of strings', () => {
+    let ManuelsLawn = ['CgFllL', 'G', 'llLLl', 'cCgL'];
+    assert.deepEqual(robotRake(ManuelsLawn),{ bin: 9 });
+
+    ManuelsLawn = ['CgFf', 'G', 'Cg', 'cCg'];
+    assert.deepEqual(robotRake(ManuelsLawn),{ bin: 0 });
+
+    ManuelsLawn = ['CgFllL', '', 'G', 'llLLl', 'cCgL', ''];
+    assert.deepEqual(robotRake(ManuelsLawn),{ bin: 9 });
+  });
+});
   
-  describe("Random Test", function() {
+  describe("Random Test 1", function() {
   const randomNum = Math.floor(Math.random() * 40);
   const randomArrs = Math.floor(Math.random() * 10);
 
@@ -197,4 +208,23 @@ describe("robotRake", function() {
       assert.deepEqual(robotRake(randomArray), {bin: randomNum*randomArrs})
     });
   })
-  */
+
+describe('Random Test 2', () => {
+  it('should return the correct number of leaves in the bin for a given array of strings', () => {
+    for (let i = 0; i < 10; i++) {
+      let ManuelsLawn = [];
+      for (let j = 0; j < Math.floor(Math.random() * 10) + 1; j++) {
+        let randomString = '';
+        for (let k = 0; k < Math.floor(Math.random() * 10) + 1; k++) {
+          randomString += (Math.random() < 0.5 ? 'CcGgFfLl' : '')[Math.floor(Math.random() * 8)];
+        }
+        ManuelsLawn.push(randomString);
+      }
+
+      let leaves = ManuelsLawn.join('').match(/[Ll]/g);
+      let expectedResult = { bin: leaves ? leaves.length : 0 };
+      assert.deepEqual(robotRake(ManuelsLawn), expectedResult);
+    }
+  });
+});
+*/
