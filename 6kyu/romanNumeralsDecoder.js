@@ -35,12 +35,17 @@ function solution(numerals) {
     IV: 4,
     I: 1,
   };
+
   let counter = 0;
+
   if (numerals.length <= 1) return romanNumerals[numerals];
+
   const splitNumerals = numerals.split("");
+
   for (let i = 0; i < splitNumerals.length; i++) {
     const currentNumeral = splitNumerals[i];
     const nextNumeral = splitNumerals[i + 1];
+
     if (romanNumerals[currentNumeral] < romanNumerals[nextNumeral]) {
       const oddNumeral = `${currentNumeral}${nextNumeral}`;
       counter += romanNumerals[oddNumeral];
