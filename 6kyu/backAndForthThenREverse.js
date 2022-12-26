@@ -45,8 +45,43 @@ if s.length is not divisible by two (i.e. is not even) & s[mid] is a number, pus
 return T
 */
 
+// function arrange(s) {
+//   if (s.length === 1 && typeof s[0] === "number") return s;
+//   const T = [];
+//   let start = 0;
+//   let end = s.length - 1;
+//   let reverse = false;
+//   const mid = Math.floor(s.length / 2);
+//   while (start < end) {
+//     if (reverse === false) {
+//       if (typeof s[start] === "number") {
+//         T.push(s[start]);
+//         start++;
+//       }
+//       if (typeof s[end] === "number") {
+//         T.push(s[end]);
+//         end--;
+//       }
+//       reverse = true;
+//     } else {
+//       if (typeof s[end] === "number") {
+//         T.push(s[end]);
+//         end--;
+//       }
+//       if (typeof s[start] === "number") {
+//         T.push(s[start]);
+//         start++;
+//       }
+//       reverse = false;
+//     }
+//   }
+//   if (s.length % 2 !== 0 && typeof s[mid] === "number") T.push(s[mid]);
+//   return T;
+// }
+
+//slightly less verbose version:
+//removed initial if statement to streamline the code, moved the reversing boolean value and incrementing start and decrementing end to the end of the loop, as they're necessary with each iteration.
 function arrange(s) {
-  if (s.length === 1 && typeof s[0] === "number") return s;
   const T = [];
   let start = 0;
   let end = s.length - 1;
@@ -56,24 +91,21 @@ function arrange(s) {
     if (reverse === false) {
       if (typeof s[start] === "number") {
         T.push(s[start]);
-        start++;
       }
       if (typeof s[end] === "number") {
         T.push(s[end]);
-        end--;
       }
-      reverse = true;
     } else {
       if (typeof s[end] === "number") {
         T.push(s[end]);
-        end--;
       }
       if (typeof s[start] === "number") {
         T.push(s[start]);
-        start++;
       }
-      reverse = false;
     }
+    start++;
+    end--;
+    reverse = !reverse;
   }
   if (s.length % 2 !== 0 && typeof s[mid] === "number") T.push(s[mid]);
   return T;
