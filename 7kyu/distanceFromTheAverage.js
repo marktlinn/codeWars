@@ -15,6 +15,7 @@ map over the array and subtract current value from average, return as a number t
 */
 
 function distancesFromAverage(arr) {
-  const average = arr.reduce((ttl, cur) => ttl + cur) / arr.length;
-  return arr.map(elem => Number((average - elem).toFixed(1)));
+  const average = arr.reduce((ttl, cur) => ttl + cur, 0) / arr.length;
+
+  return arr.map(elem => Number((average - elem).toFixed(2)));
 }
