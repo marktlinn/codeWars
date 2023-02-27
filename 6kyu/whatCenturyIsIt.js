@@ -1,4 +1,6 @@
 /*
+Link:
+https://www.codewars.com/kata/52fb87703c1351ebd200081f
 Return the century of the input year. The input will always be a 4 digit string, so there is no need for validation.
 Examples
   "1999" --> "20th"
