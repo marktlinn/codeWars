@@ -17,14 +17,25 @@ Loop through arr
 return -1 if loop exits without returning index value (as second occurece never found)
 */
 
+// function secondSymbol(s, symbol) {
+//   let symbolOccurence = 0;
+//   for (let i = 0; i < s.length; i++) {
+//     if (symbolOccurence === 1) {
+//       if (s[i] === symbol) return i;
+//     } else {
+//       if (s[i] === symbol) symbolOccurence++;
+//     }
+//   }
+//   return -1;
+// }
+
+//Tidied up version
 function secondSymbol(s, symbol) {
-  let symbolOccurence = 0;
+  let symCount = 0;
+
   for (let i = 0; i < s.length; i++) {
-    if (symbolOccurence === 1) {
-      if (s[i] === symbol) return i;
-    } else {
-      if (s[i] === symbol) symbolOccurence++;
-    }
+    if (s[i] === symbol) symCount++;
+    if (symCount === 2) return i;
   }
   return -1;
 }
