@@ -25,19 +25,32 @@ package main
 
 import "fmt"
 
+// func Multiple3And5(number int) int {
+// 	var totalInts []int
+// 	for i := 0; i < number; i++ {
+// 		if i%3 == 0 || i%5 == 0 {
+// 			totalInts = append(totalInts, i)
+// 		}
+// 	}
+
+// 	if len(totalInts) > 0 {
+// 		var count int
+// 		for _, e := range totalInts {
+// 			count += e
+// 		}
+// 		return count
+// 	}
+// 	return 0
+// }
+
 func Multiple3And5(number int) int {
-	var totalInts []int
+	var count int
 	for i := 0; i < number; i++ {
 		if i%3 == 0 || i%5 == 0 {
-			totalInts = append(totalInts, i)
+			count += i
 		}
 	}
-
-	if len(totalInts) > 0 {
-		var count int
-		for _, e := range totalInts {
-			count += e
-		}
+	if count > 0 {
 		return count
 	}
 	return 0
