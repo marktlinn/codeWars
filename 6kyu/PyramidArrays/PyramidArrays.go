@@ -38,12 +38,3 @@ func PyramidArrays(n int) [][]int {
 	}
 	return parentSlice
 }
-
-// func main() {
-// 	fmt.Println(PyramidArrays((0)))
-// 	fmt.Println(PyramidArrays((1)))
-// 	fmt.Println(PyramidArrays((2)))
-// 	fmt.Println(PyramidArrays((3)))
-// 	fmt.Println(PyramidArrays((4)))
-// 	fmt.Println(PyramidArrays((5)))
-// }
