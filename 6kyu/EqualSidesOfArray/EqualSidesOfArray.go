@@ -51,15 +51,39 @@ func reducer(arr []int) int {
 	return sum
 }
 
+//first approach
+// func FindEvenIndex(arr []int) int {
+// 	var left int
+// 	var right int
+// 	for i := 0; i < len(arr); i++ {
+// 		left = reducer(arr[:i])
+// 		right = reducer(arr[i+1:])
+// 		if left == right {
+// 			return i
+// 		}
+// 	}
+// 	return -1
+// }
+
+// improved efficiency
+// The total is found using the reducer aux function
+// let is initialised at its zeroth value
+// loop over the array take the value of array[index] away from totalSum
+// check if totalSum is equal to left, if so left == rightSide of slice so return i
+// else continue
+// finally if the loop completes without finding a balance -1 is returned
 func FindEvenIndex(arr []int) int {
+	var totalSum int = reducer(arr)
 	var left int
-	var right int
+
 	for i := 0; i < len(arr); i++ {
-		left = reducer(arr[:i])
-		right = reducer(arr[i+1:])
-		if left == right {
+		totalSum -= arr[i]
+
+		if totalSum == left {
 			return i
 		}
+
+		left = left + arr[i]
 	}
 	return -1
 }
