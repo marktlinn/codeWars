@@ -21,12 +21,43 @@ return the stored variable
 
 package HighestRankNumInArray
 
+// func HighestRank(nums []int) int {
+// 	if len(nums) == 1 {
+// 		return nums[0]
+// 	}
+// 	var valueMap = map[int]int{}
+// 	var count int
+// 	var highestValue int = nums[0]
+// 	for _, elem := range nums {
+// 		val, ok := valueMap[elem]
+// 		if ok {
+// 			valueMap[elem] = val + 1
+// 		} else {
+// 			valueMap[elem] = 1
+// 		}
+// 	}
+
+// 	for k, v := range valueMap {
+// 		if v > count {
+// 			count = v
+// 			highestValue = k
+// 		} else if v == count {
+// 			if k > highestValue {
+// 				highestValue = k
+// 			}
+// 		}
+// 	}
+// 	return highestValue
+// }
+
+// A slightly more perfomant solution that doesn't require an additional loop through the map
 func HighestRank(nums []int) int {
 	if len(nums) == 1 {
 		return nums[0]
 	}
 	var valueMap = map[int]int{}
-	var count int
+	var frequency int
+
 	var highestValue int = nums[0]
 	for _, elem := range nums {
 		val, ok := valueMap[elem]
@@ -35,15 +66,13 @@ func HighestRank(nums []int) int {
 		} else {
 			valueMap[elem] = 1
 		}
-	}
 
-	for k, v := range valueMap {
-		if v > count {
-			count = v
-			highestValue = k
-		} else if v == count {
-			if k > highestValue {
-				highestValue = k
+		if valueMap[elem] > frequency {
+			frequency = valueMap[elem]
+			highestValue = elem
+		} else if valueMap[elem] == frequency {
+			if elem > highestValue {
+				highestValue = elem
 			}
 		}
 	}
