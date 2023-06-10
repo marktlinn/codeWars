@@ -21,6 +21,7 @@ If an empty value ( null, None, Nothing etc. ) is given instead of an array, or 
 #         sum += num
 #   return sum
 
+# second version
 def sum_array(arr):
   ttl = 0
   if arr:
