@@ -8,10 +8,6 @@ Examples
   "double  spaces"      ==> "elbuod  secaps"
 """
 
-# original_string = "Hello, World!"
-# reversed_string = ''.join(reversed(original_string))
-# print(reversed_string)
-
 
 def reverse_words(text):
     words = text.split(' ')
