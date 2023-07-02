@@ -61,14 +61,23 @@ function growingPlant(upSpeed, downSpeed, desiredHeight) {
   let d = 0;
   let start = false
   while (n < desiredHeight){
-    n += upSpeed - downSpeed;
-    if(start){
+    n += upSpeed;
+    n -= downSpeed
+    start = true
     d++
-    } else {
-      start = true
-    }
   }
   return d
 }
 
+// Version 2 a: simplified
+function growingPlant(upSpeed, downSpeed, desiredHeight) {
+  let n = upSpeed;
+  let d = 1;
+  while (n < desiredHeight){
+    n += upSpeed;
+    n -= downSpeed
+    d++
+  }
+  return d
+}
 console.log(growingPlant(100,10,910))
