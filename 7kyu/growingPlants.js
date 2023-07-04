@@ -56,18 +56,18 @@ The number of days that it will take for the plant to reach/pass desiredHeight (
 
 
 
-function growingPlant(upSpeed, downSpeed, desiredHeight) {
-  let n = 0;
-  let d = 0;
-  let start = false
-  while (n < desiredHeight){
-    n += upSpeed;
-    n -= downSpeed
-    start = true
-    d++
-  }
-  return d
-}
+// function growingPlant(upSpeed, downSpeed, desiredHeight) {
+//   let n = 0;
+//   let d = 0;
+//   let start = false
+//   while (n < desiredHeight){
+//     n += upSpeed;
+//     n -= downSpeed
+//     start = true
+//     d++
+//   }
+//   return d
+// }
 
 // Version 2 a: simplified
 function growingPlant(upSpeed, downSpeed, desiredHeight) {
