@@ -11,7 +11,7 @@ n=-5, m=5:  0
 
 */
 
-public class Paper {
+public class SchoolPaperwork {
   public static int paperWork(int n, int m) {
     return (n < 0 || m < 0) ? 0 : n * m;
   }
