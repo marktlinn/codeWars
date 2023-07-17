@@ -13,10 +13,7 @@ n=-5, m=5:  0
 
 public class Paper {
   public static int paperWork(int n, int m) {
-    if (n < 0 || m < 0) {
-      return 0;
-    }
-    return n * m;
+    return (n < 0 || m < 0) ? 0 : n * m;
   }
 
   public static void main(String[] args) {
@@ -26,5 +23,4 @@ public class Paper {
     int result2 = paperWork(3, 7);
     System.out.println(String.format("Result 2: %d", result2));
   }
-
 }
