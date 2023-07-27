@@ -24,7 +24,7 @@ So, at the end we have the list [4, 5, 3], which is what you have to return. If 
 
 /*
 Pseudocode:
-Implement a queue, use a pointer to point to the first element and move it along the indeces as elements are changed, loop it back to 0 if the 
+Implement a queue, use a pointer to point to the first element and move it along the indeces as elements are changed, loop it back to 0 if it exceeds the last index.
 */
 import java.util.Arrays;
 
