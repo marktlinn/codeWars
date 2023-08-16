@@ -16,10 +16,20 @@ Note: you will be provided atleast one word and should take string as input and 
 """
 
 
-def drop_cap(words):
-    def capitalize_word(word):
-        return word.capitalize() if len(word.strip()) > 2 else word
+# def drop_cap(words):
+#     def capitalize_word(word):
+#         return word.capitalize() if len(word.strip()) > 2 else word
 
-    words_list = words.split(" ")
-    processed_words = [capitalize_word(word) for word in words_list]
-    return " ".join(processed_words)
+#     words_list = words.split(" ")
+#     processed_words = [capitalize_word(word) for word in words_list]
+#     return " ".join(processed_words)
+
+# Second more succinct version
+def drop_cap(words):
+    return " ".join(w.capitalize() if len(w) > 2 else w for w in words.split(" "))
+
+
+print(drop_cap("apple"))
+print(drop_cap("one   space"))
+print(drop_cap("   space WALK   "))
+print(drop_cap("apple of banana"))
