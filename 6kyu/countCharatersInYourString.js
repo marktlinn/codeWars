@@ -16,3 +16,5 @@ function count(string) {
     .forEach(elem => (letters[elem] ? letters[elem]++ : (letters[elem] = 1)));
   return letters;
 }
+
+
